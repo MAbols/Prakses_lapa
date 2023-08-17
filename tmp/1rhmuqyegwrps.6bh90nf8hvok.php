@@ -1,0 +1,68 @@
+<!-- views/update_patient.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rediģēt pacienta informāciju</title>
+    <base href="/"/>
+    <link rel="stylesheet" type="text/css" href="vendor/twbs/bootstrap/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <h1 class="text-center">Rediģēt pacienta informāciju</h1>
+                <form method="post" action="<?= ($BASE) ?>/update-patient/<?= ($patient['Pacienta_id']) ?>">
+                    <div class="form-group">
+                        <label for="name">Vārds:</label>
+                        <input type="text" id="name" name="name" value="<?= ($patient['Vards']) ?>" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="surname">Uzvārds:</label>
+                        <input type="text" id="surname" name="surname" value="<?= ($patient['Uzvards']) ?>" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="personal_code">Personas kods:</label>
+                        <input type="text" id="personal_code" name="personal_code" value="<?= ($patient['Personas_kods']) ?>" pattern="\d{6}-\d{5}" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="sickness1">Slimība 1:</label>
+                        <textarea id="sickness1" name="sickness1" class="form-control" required><?= ($patient['Slimiba_1']) ?></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="sickness2">Slimība 2:</label>
+                        <textarea id="sickness2" name="sickness2" class="form-control" required><?= ($patient['Slimiba_2']) ?></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="sickness3">Slimība 3:</label>
+                        <select id="sickness3" name="sickness3" class="form-control" required>
+                            <option value="Lūzums"<?= ($patient['Slimiba_3'] == 'Lūzums' ? ' selected' : '') ?>>Lūzums</option>
+                            <option value="Nogurums"<?= ($patient['Slimiba_3'] == 'Nogurums' ? ' selected' : '') ?>>Nogurums</option>
+                            <option value="Galvassāpes"<?= ($patient['Slimiba_3'] == 'Galvassāpes' ? ' selected' : '') ?>>Galvassāpes</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Dzimums:</label>
+                        <div class="form-check">
+                            <input type="radio" id="male" name="sex" value="Vīrietis"<?= ($patient['Dzimums'] == 'Vīrietis' ? ' checked' : '') ?> class="form-check-input" required>
+                            <label for="male" class="form-check-label">Vīrietis</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" id="female" name="sex" value="Sieviete"<?= ($patient['Dzimums'] == 'Sieviete' ? ' checked' : '') ?> class="form-check-input" required>
+                            <label for="female" class="form-check-label">Sieviete</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Rediģēt pacientu" class="btn btn-primary">
+                    </div>
+                    <div class="form-group">
+                        <a href="<?= ($BASE) ?>/" class="btn btn-secondary">Atgriezties uz sākumu</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    
+    <script src="/vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

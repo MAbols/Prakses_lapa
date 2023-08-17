@@ -1,0 +1,11 @@
+{
+    "require": {
+        "bcosca/fatfree-core": "^3.8",
+        "twbs/bootstrap": "5.0.2"
+    },
+    "autoload": {
+        "classmap": [
+            "controllers/"
+        ]
+    }
+}
